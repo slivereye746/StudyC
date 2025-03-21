@@ -83,7 +83,7 @@ void showDuAn(QuanLyDuAn *s) {
         printf("Ngăn xếp rỗng, không có dự án nào!\n");
         return;
     }
-    printf("\n=== Danh sach tat ca du an trong ngan xep ===\n");
+    printf("\nDanh sach tat ca du an\n");
     for (int i = s->top; i >= 0; i--) {
         printDuAn(s->arr[i]);
     }
@@ -107,7 +107,7 @@ int main() {
         getchar();
 
         printf("Ten du an: ");
-        fgets(p.tenDuAn, sizeof(p.tenDuAn), stdin);
+        fgets(p.tenDuAn, sizeof(p.tenDuAn), stdin);// Nhập chuỗi từ bàn phím
         // Xoa ky tu xuong dong neu co
         p.tenDuAn[strcspn(p.tenDuAn, "\n")] = '\0';
 
