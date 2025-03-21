@@ -54,6 +54,22 @@ void inSoLeVaChiaHetCho3(int a[], int soPhanTuMang) {
     
 }
 
+void demSoLanXuatHien(int a[], int soPhanTuMang) {
+    for (int i = 0; i < soPhanTuMang; i++)
+    {
+        int dem = 0;
+        for (int j = 0; j < soPhanTuMang; j++)
+        {
+            if (a[i] == a[j])
+            {
+                dem++;
+            }
+        }
+        printf("Phan tu a[%d] = %d xuat hien %d lan.\n", i, a[i], dem);
+    }
+    
+}
+
 
 int main() {
     int a[MAX];
@@ -69,6 +85,9 @@ int main() {
     }
     nhapMang(a, n);
     xuatMang(a,n);
+    printf("\n");
+    demSoLanXuatHien(a, n);
+    printf("\n");
     inSoLeVaChiaHetCho3(a, n);
     return 0;
 }

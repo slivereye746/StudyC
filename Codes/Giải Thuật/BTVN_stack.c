@@ -1,28 +1,29 @@
 #include <stdio.h>
 #include <string.h>
+#include <conio.h>
 
 #define MAX 100
 
 //Cấu trúc lưu trữ thông tin dự án
-typedef struct {
+typedef struct DuAn{
     int maDuAn;
     char tenDuAn[200];
     char diaDiem[300];
     float kinhPhi;
-} DuAn;
+};
 
-//Cấu trúc ngăn xếp
-typedef struct {
+//Cấu trúc ngăn xếp  
+struct QuanLyDuAn{
     DuAn arr[MAX];
     int top;
-} QuanLyDuAn;
+};
 
 //Khởi tạo ngăn xếp rỗng
-void createQuanLyDuAn(QuanLyDuAn *s) {
+void createQuanLyDuAn(QuanLyDuAn s) {
     s->top = -1;
 }
 
-//Kiểm tra rỗng
+//Kiểm tra rỗng 
 int isEmpty(QuanLyDuAn *s) {
     return (s->top == -1);
 }
@@ -59,13 +60,13 @@ void printDuAn(DuAn p) {
     printf("Ten du an: %s\n", p.tenDuAn);
     printf("Dia diem : %s\n", p.diaDiem);
     printf("Kinh phi : %.2f\n", p.kinhPhi);
-    printf("-----------------------------\n");
+    printf("\n");
 }
 
 //Hiển thị các dự án có địa điểm "Thuan Thanh"
 void showThuanThanh(QuanLyDuAn *s) {
     int found = 0;
-    printf("\n=== Danh sach du an co dia diem 'Thuan Thanh' ===\n");
+    printf("\nDanh sach du an co dia diem 'Thuan Thanh':\n");
     for (int i = 0; i <= s->top; i++) {
         if (strcmp(s->arr[i].diaDiem, "Thuan Thanh") == 0) {
             printDuAn(s->arr[i]);
@@ -80,7 +81,7 @@ void showThuanThanh(QuanLyDuAn *s) {
 //Hiển thị toàn bộ dự án trong ngăn xếp
 void showDuAn(QuanLyDuAn *s) {
     if (isEmpty(s)) {
-        printf("Ngăn xếp rỗng, không có dự án nào!\n");
+        printf("Danh sach rong!\n");
         return;
     }
     printf("\nDanh sach tat ca du an\n");
@@ -96,7 +97,7 @@ int main() {
     int n;
     printf("Nhap so luong du an muon them vao ngan xep: ");
     scanf("%d", &n);
-    getchar(); //Đọc ký tự '\n' còn sót lại trong bộ đệm
+    getchar(); //Đọc ký  tự '\n' còn sót lại trong bộ đệm
 
     for (int i = 0; i < n; i++) {
         DuAn p;
