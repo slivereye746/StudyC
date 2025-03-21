@@ -1,25 +1,24 @@
 #include <stdio.h>
 #include <string.h>
-#include <conio.h>
 
 #define MAX 100
 
 //Cấu trúc lưu trữ thông tin dự án
-typedef struct DuAn{
+typedef struct {
     int maDuAn;
     char tenDuAn[200];
     char diaDiem[300];
     float kinhPhi;
-};
+} DuAn;
 
 //Cấu trúc ngăn xếp  
-struct QuanLyDuAn{
+typedef struct {
     DuAn arr[MAX];
     int top;
-};
+} QuanLyDuAn;
 
 //Khởi tạo ngăn xếp rỗng
-void createQuanLyDuAn(QuanLyDuAn s) {
+void createQuanLyDuAn(QuanLyDuAn *s) {
     s->top = -1;
 }
 
@@ -27,7 +26,7 @@ void createQuanLyDuAn(QuanLyDuAn s) {
 int isEmpty(QuanLyDuAn *s) {
     return (s->top == -1);
 }
-
+                                       
 //Kiểm tra đầy
 int isFull(QuanLyDuAn *s) {
     return (s->top == MAX - 1);
