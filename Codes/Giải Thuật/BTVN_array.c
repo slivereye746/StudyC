@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-#define MAX 100
+#define MAX 150
 
 //Nhập mảng
 void nhapMang(int a[], int soPhanTuMang) {
