@@ -3,7 +3,7 @@
 
 #define MAX 100
 
-// Cấu trúc lưu trữ thông tin dự án
+//Cấu trúc lưu trữ thông tin dự án
 typedef struct {
     int maDuAn;
     char tenDuAn[200];
@@ -11,28 +11,28 @@ typedef struct {
     float kinhPhi;
 } DuAn;
 
-// Cấu trúc ngăn xếp
+//Cấu trúc ngăn xếp
 typedef struct {
     DuAn arr[MAX];
     int top;
 } QuanLyDuAn;
 
-// a. Khởi tạo ngăn xếp rỗng
+//Khởi tạo ngăn xếp rỗng
 void createQuanLyDuAn(QuanLyDuAn *s) {
     s->top = -1;
 }
 
-// Kiểm tra rỗng
+//Kiểm tra rỗng
 int isEmpty(QuanLyDuAn *s) {
     return (s->top == -1);
 }
 
-// Kiểm tra đầy
+//Kiểm tra đầy
 int isFull(QuanLyDuAn *s) {
     return (s->top == MAX - 1);
 }
 
-// b. Thêm một phần tử vào ngăn xếp (push)
+//Thêm một phần tử vào ngăn xếp (push)
 void push(QuanLyDuAn *s, DuAn p) {
     if (isFull(s)) {
         printf("So luong du an da full!\n");
@@ -41,19 +41,19 @@ void push(QuanLyDuAn *s, DuAn p) {
     s->arr[++s->top] = p;
 }
 
-// b. Bỏ một phần tử khỏi ngăn xếp (pop)
+//Bỏ một phần tử khỏi ngăn xếp (pop)
 DuAn pop(QuanLyDuAn *s) {
-    DuAn temp;  // Tạo biến tạm để trả về
+    DuAn temp;  //Tạo biến tạm để trả về
     if (isEmpty(s)) {
         printf("Khong co du an nao!\n");
-        // Có thể xử lý trả về giá trị mặc định hoặc báo lỗi
+        //Có thể xử lý trả về giá trị mặc định hoặc báo lỗi
         return temp;
     }
     temp = s->arr[s->top--];
     return temp;
 }
 
-// Hiển thị thông tin một dự án
+//Hiển thị thông tin một dự án
 void printDuAn(DuAn p) {
     printf("Ma du an : %d\n", p.maDuAn);
     printf("Ten du an: %s\n", p.tenDuAn);
@@ -62,7 +62,7 @@ void printDuAn(DuAn p) {
     printf("-----------------------------\n");
 }
 
-// c. Hiển thị các dự án có địa điểm "Thuan Thanh"
+//Hiển thị các dự án có địa điểm "Thuan Thanh"
 void showThuanThanh(QuanLyDuAn *s) {
     int found = 0;
     printf("\n=== Danh sach du an co dia diem 'Thuan Thanh' ===\n");
@@ -77,7 +77,7 @@ void showThuanThanh(QuanLyDuAn *s) {
     }
 }
 
-// Hiển thị toàn bộ dự án trong ngăn xếp
+//Hiển thị toàn bộ dự án trong ngăn xếp
 void showDuAn(QuanLyDuAn *s) {
     if (isEmpty(s)) {
         printf("Ngăn xếp rỗng, không có dự án nào!\n");
@@ -96,9 +96,8 @@ int main() {
     int n;
     printf("Nhap so luong du an muon them vao ngan xep: ");
     scanf("%d", &n);
-    getchar(); // Đọc ký tự '\n' còn sót lại trong bộ đệm
+    getchar(); //Đọc ký tự '\n' còn sót lại trong bộ đệm
 
-    // Nhập dữ liệu cho n dự án và push vào ngăn xếp
     for (int i = 0; i < n; i++) {
         DuAn p;
         printf("\nNhap thong tin du an thu %d\n", i + 1);
@@ -122,11 +121,7 @@ int main() {
 
         push(&s, p);
     }
-
-    // Hiển thị toàn bộ dự án
     showDuAn(&s);
-
-    // Hiển thị dự án có địa điểm "Thuan Thanh"
     showThuanThanh(&s);
 
     return 0;
