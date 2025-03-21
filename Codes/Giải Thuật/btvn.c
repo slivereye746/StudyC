@@ -3,28 +3,7 @@
 
 #define MAX 100
 
-//Nhập mảng
-void nhapMang(int a[], int soPhanTuMang) {
-    for (int i = 0; i < soPhanTuMang; i++) {
-        int j = i + 1;
-        while (true)
-        {
-            printf("Nhap phan tu thu %d: ", j);
-            /* kiểm tra số nguyên, nếu ký tự nhập vào không phải số nguyên, nó không thể chia hết cho 1 đượcc */
-            if (scanf("%d", &a[i]) == 1)
-            {
-                /* code */
-                break;
-            }
-            else
-            {
-                printf("Vui long nhap so nguyen.\n");
-                while (getchar() != '\n'); // Xóa dữ liệu trong bộ nhớ đệm đến phím Enter, cho phép nhập lại giá trị
-                /* code */
-            }      
-        }
-    }
-}
+
 
 //Xuất mảng
 void xuatMang(int a[], int soPhanTuMang) {
